@@ -1,19 +1,21 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_UiiZUaFYK2o-bAUy2YpxDhUCGOuNsXI&callback=initMap" async defer></script>
 <ion-view view-title="Ara">
   <ion-content>
-	<div class="list card">
-	  <div class="item item-avatar">
-	   
-	    <h2>{{ detay.name }}</h2>
-	    <p></p>
-	  </div>
-	  <div class="item item-image">
-	  
-	  </div>
-	  <div class="item item-icon-left assertive">
-	     <p>{{ detay.location.address }} {{ detay.location.city }}</p>
-	    <i class="icon"></i>
-	   	{{ detay.likes.summary }}
-	  </div>
-</div>   
+    <div class="list card">
+      <div class="item item-avatar">
+        <h2>{{ detay.name }}</h2>
+        <p>{{ detay.contact.phone }}</p>
+      </div>
+      <div class="item item-image">
+        <!--  <img  src="{{ resim.prefix + resim.suffix }}"> -->
+      </div>
+      <div class="item item-icon-left assertive">
+        <p>{{ detay.location.address }} {{ detay.location.city }}</p>
+        <i class="icon"></i> {{ detay.likes.summary }}
+      </div>
+      <div ng-click="map()" style="width:100%; background-color :#eee">Haritayı Göster
+        <div id="map" style="width: 100%; height: 300px"></div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
