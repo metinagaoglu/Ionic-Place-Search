@@ -1,5 +1,5 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_UiiZUaFYK2o-bAUy2YpxDhUCGOuNsXI&callback=initMap" async defer></script>
-<ion-view view-title="Ara">
+<ion-view view-title="{{ detay.name }}">
   <ion-content>
     <div class="list card">
       <div class="item item-avatar">
@@ -7,15 +7,27 @@
         <p>{{ detay.contact.phone }}</p>
       </div>
       <div class="item item-image">
-        <!--  <img  src="{{ resim.prefix + resim.suffix }}"> -->
+        <img src="{{ detay.photourl }}">
       </div>
       <div class="item item-icon-left assertive">
         <p>{{ detay.location.address }} {{ detay.location.city }}</p>
+        {{ detay.hereNow.summary }} <br>
         <i class="icon"></i> {{ detay.likes.summary }}
       </div>
-      <div ng-click="map()" style="width:100%; background-color :#eee">Haritayı Göster
-        <div id="map" style="width: 100%; height: 300px"></div>
-      </div>
     </div>
+    <center><h3>Yorumlar</h3></center>
+    <div ng-repeat="row in yorumlar">
+      <a class="item item-avatar">
+        <img src="{{ row.photourl }}">
+        <h2>{{  row.text }}</h2>
+       <!-- <p>{{ row.text }}</p> -->
+      </a>
+    </div>
+         <div ng-click="map()" style="width:100%; background-color :#eee">Haritayı Göster
+        <div id="map" style="width: 90%; height: 300px"></div>
+     </div>
+    <!--<div ng-repeat="row in resim">
+      <img src=""> {{ row.prefix+row.suffix }}
+    </div>-->
   </ion-content>
 </ion-view>
